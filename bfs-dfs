@@ -55,5 +55,44 @@ There may be up to nnn nodes stored in queue and O(n) space is required.
 Therefore, the space complexity is O(n+m).
 
 DFS
+driver: dfs(graph, seen, source, destination);
+
+    private boolean dfs(Map<Integer, List<Integer>> graph, boolean[] seen, int currNode, int destination) {
+        if (currNode == destination) {
+            return true;
+        }
+        if (!seen[currNode]) {
+            seen[currNode] = true;
+            for (int nextNode : graph.get(currNode)) {
+                if (dfs(graph, seen, nextNode, destination)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 
 DFS - Iterative
+
+        // Start from source node, add it to stack.
+        boolean[] seen = new boolean[n];
+        seen[source] = true;
+        Stack<Integer> stack = new Stack<>();
+        stack.push(source);
+        
+        while (!stack.isEmpty()) {
+            int currNode = stack.pop();
+            if (currNode == destination) {
+                return true;
+            }
+            // Add all unvisited neighbors of the current node to stack'
+            // and mark it as visited.
+            for (int nextNode : graph.get(currNode)) {
+                if (!seen[nextNode]) {
+                    seen[nextNode] = true;
+                    stack.push(nextNode);
+                }
+            }
+        }
+        
+        return false; 
