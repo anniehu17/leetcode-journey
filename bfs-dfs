@@ -1,0 +1,59 @@
+Converting a 2D Array of Edges into an Adjacency List
+- The reason why we want to do this is that it is easier to use the graph format
+- If we want to start a traversal from a specific "source" node in the graph, then it is easy to just do a lookup in the Map
+- Otherwise, we have to iterate through the 2D Array every time.
+- We might as well just traverse all of the edges in the beginning to save this cost.
+- This is O(E)
+
+int[][] edges -> Map<Integer, List<Integer>>
+        Map<Integer, List<Integer>> graph = new HashMap<>();
+        for (int[] edge : edges) {
+            int a = edge[0], b = edge[1];
+            graph.computeIfAbsent(a, val -> new ArrayList<Integer>()).add(b);
+            graph.computeIfAbsent(b, val -> new ArrayList<Integer>()).add(a);
+        }
+
+BFS
+        // Store all the nodes to be visited in 'queue'.
+        boolean[] seen = new boolean[n];
+        seen[source] = true;
+        Queue<Integer> queue = new LinkedList<>();
+        queue.offer(source);
+        
+        while (!queue.isEmpty()) {
+            int currNode = queue.poll();
+            if (currNode == destination) {
+                return true; 
+            }
+
+            // For all the neighbors of the current node, if we haven't visit it before,            
+            // add it to 'queue' and mark it as visited.
+            for (int nextNode : graph.get(currNode)) {
+                if (!seen[nextNode]) {
+                    seen[nextNode] = true;
+                    queue.offer(nextNode);
+                }
+            }
+        }
+        
+        return false;
+Complexity Analysis:
+Let n be the number of nodes and m be the number of edges.
+
+Time complexity: O(n+m)O(n + m)O(n+m)
+
+In a typical BFS search, the time complexity is O(V+E) where V is the number of vertices and E is the number of edges. 
+We build adjacent list of all m edges in graph which takes O(m).
+Each node is added to the queue and popped from queue once, it takes O(n) to handle all nodes.
+The time complexity is O(n+m).
+
+Space complexity: O(n+m)
+
+We used a hash map neighbors to store all edges, which requires O(m) space for m edges.
+We use seen, either a hash set or an array to record the visited nodes, which takes O(n) space.
+There may be up to nnn nodes stored in queue and O(n) space is required.
+Therefore, the space complexity is O(n+m).
+
+DFS
+
+DFS - Iterative
