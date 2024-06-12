@@ -1,4 +1,4 @@
-Dutch National Flag Algorithm (3-way Partitioning)
+Dutch National Flag Algorithm (3-way Partitioning) [Leetcode Problem](https://leetcode.com/problems/sort-colors/description/)
 
 ```
 class Solution {
@@ -25,7 +25,7 @@ class Solution {
     }
 }
 ```
-Prefix Sum
+Prefix Sum [Leetcode Problem](https://leetcode.com/problems/range-sum-query-immutable/)
 ```
 class NumArray {
 
