@@ -1,5 +1,5 @@
 # Contains Duplicate
-
+```
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
         seen = set()
@@ -7,7 +7,7 @@ class Solution:
             if num in seen:
                 return True
             seen.add(num)
-
+```
 Note: none
 
 #
