@@ -76,3 +76,23 @@ class Solution:
 ```
 Note: converts each string to a unique count of its letters - usage of ans.values() to return only values of dict
 
+# 347. Top K Frequent Elements
+```python
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        frequency = collections.defaultdict(int)
+
+        for num in nums:
+            frequency[num] += 1
+
+        most_frequent = [(freq, elem) for elem, freq in frequency.items()]
+
+        most_frequent.sort(reverse=True, key=lambda x: x[0])
+
+        ans = list()
+        for i in range(k):
+            ans.append(most_frequent[i][1])
+        
+        return ans
+```
+Note: usage of lambda to sort and reversing a dict
