@@ -1,4 +1,5 @@
-# 217. Contains Duplicate
+# Arrays & Hashing
+## 217. Contains Duplicate
 ```python
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
@@ -10,7 +11,7 @@ class Solution:
 ```
 Note: none
 
-# 242. Valid Anagram
+## 242. Valid Anagram
 ```python
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
@@ -30,7 +31,7 @@ class Solution:
 ```
 Note: usage of ord and [0] * 26 to create a size 26 array
 
-# 1. Two Sum
+## 1. Two Sum
 ```python
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
@@ -53,7 +54,7 @@ class Solution:
             hashmap[nums[i]] = i
 ```
 
-# 49. Group Anagrams
+## 49. Group Anagrams
 ```python
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
@@ -76,7 +77,7 @@ class Solution:
 ```
 Note: converts each string to a unique count of its letters - usage of ans.values() to return only values of dict
 
-# 347. Top K Frequent Elements
+## 347. Top K Frequent Elements
 ```python
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
