@@ -148,3 +148,38 @@ class Solution:
         return ans
 ```
 Note: example of backwards iteration of loop in p3
+
+## 36. Valid Sudoku
+```python
+class Solution:
+    def isValidSudoku(self, board: List[List[str]]) -> bool:
+        # Check rows
+        for row in board:
+            if not self.is_valid_unit(row):
+                return False
+        
+        # Check columns
+        for col in range(len(board[0])):
+            column = [board[row][col] for row in range(len(board))]
+            if not self.is_valid_unit(column):
+                return False
+
+        # Check boxes (sub-grids)
+        for i in range(0, 9, 3):  # Loop through rows of boxes
+            for j in range(0, 9, 3):  # Loop through columns of boxes
+                box = [board[row][col] for row in range(i, i + 3) for col in range(j, j + 3)]
+                if not self.is_valid_unit(box):
+                    return False
+        
+        return True
+    
+    def is_valid_unit(self, unit: List[str]) -> bool:
+        seen_nums = set()
+        for cell in unit:
+            if cell != '.':
+                if cell in seen_nums:
+                    return False
+                seen_nums.add(cell)
+        return True
+```
+Note: usage of an additional method in Python as well as how to traverse matrices in Python
