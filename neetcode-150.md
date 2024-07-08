@@ -1,4 +1,4 @@
-# Contains Duplicate
+# 217. Contains Duplicate
 ```python
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
@@ -10,7 +10,7 @@ class Solution:
 ```
 Note: none
 
-# Valid Anagram
+# 242. Valid Anagram
 ```python
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
@@ -30,7 +30,7 @@ class Solution:
 ```
 Note: usage of ord and [0] * 26 to create a size 26 array
 
-# Two Sum
+# 1. Two Sum
 ```python
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
