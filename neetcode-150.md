@@ -127,3 +127,24 @@ class Codec:
         return decoded_strings
 ```
 Note: possible algorithms include a non-ASCII delimiter, ecsaping an ASCII delimiter, and chunked transfer encoding (above)
+## 238. Product of Array Except Self
+```python
+class Solution:
+    def productExceptSelf(self, nums: List[int]) -> List[int]:
+        prefix_products = [1] * len(nums)
+        postfix_products = [1] * len(nums)
+
+        for i in range(1, len(nums)):
+            prefix_products[i] = prefix_products[i-1] * nums[i-1]
+
+        for i in range(len(nums) - 2, -1, -1):
+            postfix_products[i] = postfix_products[i+1] * nums[i+1]
+
+        ans = [1] * len(nums)
+
+        for i in range(len(nums)):
+            ans[i] = prefix_products[i] * postfix_products[i]
+
+        return ans
+```
+Note: example of backwards iteration of loop in p3
