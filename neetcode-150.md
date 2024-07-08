@@ -1,5 +1,5 @@
 # Contains Duplicate
-```
+```python
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
         seen = set()
@@ -11,7 +11,7 @@ class Solution:
 Note: none
 
 # Valid Anagram
-```
+```python
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
         alphabet = [0] * 26
@@ -31,7 +31,7 @@ class Solution:
 Note: usage of ord and [0] * 26 to create a size 26 array
 
 # Two Sum
-```
+```python
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         for i in range(len(nums)):
@@ -42,7 +42,7 @@ class Solution:
         return (0, 0)
 ```
 Note: a better way is the below solution which is a one-pass hashmap
-```
+```python
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         hashmap = {}
