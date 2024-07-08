@@ -126,3 +126,4 @@ class Codec:
             i = delim + 2 + length
         return decoded_strings
 ```
+Note: possible algorithms include a non-ASCII delimiter, ecsaping an ASCII delimiter, and chunked transfer encoding (above)
