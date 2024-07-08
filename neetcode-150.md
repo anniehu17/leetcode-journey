@@ -52,3 +52,27 @@ class Solution:
                 return [i, hashmap[complement]]
             hashmap[nums[i]] = i
 ```
+
+# 49. Group Anagrams
+```python
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        ans = collections.defaultdict(list)
+        for s in strs:
+            ans[tuple(sorted(s))].append(s)
+        return ans.values()
+```
+Note: usage of collections.defaultdict(list) and tuple(sorted(s)) to sort a string by its letters alphabetically
+```python
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        ans: DefaultDict[int, List[str]] = collections.defaultdict(list)
+        for s in strs:
+            count = [0] * 26
+            for c in s:
+                count[ord(c) - ord("a")] += 1
+            ans[tuple(count)].append(s)
+        return ans.values()
+```
+Note: converts each string to a unique count of its letters - usage of ans.values() to return only values of dict
+
